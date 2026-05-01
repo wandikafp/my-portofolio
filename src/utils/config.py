@@ -22,7 +22,7 @@ PROJECTS = [
         "tools": ["Scikit-learn", "Pandas", "Streamlit", "Docker"],
         "image_url": "https://via.placeholder.com/600x300?text=House+Price+Prediction",
         "github_url": "https://github.com/wandikafp",
-        "demo_url": "",
+        "demo_url": "__page__:pages/🏠_Prediksi_Harga_Rumah.py",
         "metrics": {"RMSE": "0.15", "R²": "0.89", "Fitur": "80+"},
         "challenges": [
             "Feature selection dari 300+ kolom awal",
@@ -33,6 +33,78 @@ PROJECTS = [
             "Template pipeline ML untuk regression problems",
             "Monitoring dashboard untuk model drift detection",
             "Cost optimization: 70% lebih hemat dengan model pruning"
+        ]
+    },
+    {
+        "id": "customer-intelligence",
+        "title": "🏦 SafeBank Customer Intelligence",
+        "description": "Membangun sistem customer intelligence menggunakan NLP dan RAG untuk menganalisis sentimen pelanggan dan memberikan rekomendasi produk keuangan yang dipersonalisasi.",
+        "long_description": """
+        SafeBank Customer Intelligence adalah sistem berbasis AI yang dirancang untuk memberikan 
+        wawasan mendalam tentang kepuasan dan preferensi pelanggan bank. Sistem ini 
+        menggabungkan Natural Language Processing (NLP) dengan Retrieval-Augmented 
+        Generation (RAG) untuk menganalisis feedback pelanggan dalam skala besar dan 
+        memberikan rekomendasi produk yang dipersonalisasi.
+
+        Key Features:
+        🔹 **Customer Feedback Analysis**: Menganalisis ulasan, komentar, dan interaksi pelanggan 
+        untuk mengidentifikasi tren, sentimen, dan masalah yang sering muncul
+        🔹 **Personalized Product Recommendation**: Memberikan rekomendasi produk perbankan 
+        yang disesuaikan dengan kebutuhan dan profil masing-masing pelanggan
+        🔹 **Smart Q&A System**: Chatbot cerdas yang dapat menjawab pertanyaan pelanggan 
+        secara akurat dengan memanfaatkan database pengetahuan internal bank
+        🔹 **Customer Behavior Insights**: Mendeteksi pola perilaku pelanggan dan memberikan 
+        peringatan dini jika ada potensi churn (perpindahan nasabah)
+        
+        Technical Architecture:
+        🎯 **Embedding Model**: Sentence-Transformers untuk representasi semantik teks
+        💾 **Vector Database**: PGVector untuk penyimpanan dan pencarian vektor yang efisien
+        🧠 **LLM Integration**: Groq API untuk pemrosesan bahasa alami tingkat lanjut
+        📊 **Frontend**: Streamlit untuk antarmuka pengguna yang interaktif
+        📦 **Deployment**: Docker untuk kemudahan deployment dan skalabilitas
+        """,
+        "tools": ["Python", "PGVector", "Groq API", "Streamlit", "Docker", "Sentence-Transformers"],
+        "image_url": "https://via.placeholder.com/600x300?text=Customer+Intelligence",
+        "github_url": "",
+        "demo_url": "__page__:pages/customer_intelligence.py",
+        "metrics": {"Token": "1024", "Timeout": "None", "Max Retries": "3"},
+        "challenges": [
+            """
+            RAG Implementation Challenges: Implementing Retrieval-Augmented Generation (RAG) presents 
+            unique challenges compared to traditional NLP applications. One significant challenge is 
+            optimizing the retrieval component to ensure relevant context is fetched for each query. 
+            This involves fine-tuning the embedding model to understand domain-specific language and 
+            experimenting with different chunking strategies to maximize retrieval accuracy.
+            
+            Scalability: As the volume of customer feedback grows, scaling the RAG system becomes critical. 
+            Storing and efficiently querying millions of vectors requires a robust vector database solution 
+            and careful optimization of indexing strategies. Additionally, managing API rate limits and 
+            response times for the LLM integration while maintaining low latency can be complex.
+            
+            Evaluation and Validation: Evaluating the performance of a RAG system goes beyond 
+            traditional accuracy metrics. It requires assessing both the quality of the retrieved context 
+            and the relevance of the generated responses. Developing comprehensive evaluation frameworks 
+            that measure factors like factual consistency, helpfulness, and domain appropriateness 
+            is essential for ensuring the system meets business requirements.
+            """
+        ],
+        "outcomes": [
+            """
+            Enhanced Customer Experience: The RAG-powered Q&A system significantly improves 
+            customer satisfaction by providing instant, accurate answers to their queries. 
+            Personalized product recommendations tailored to individual preferences help customers 
+            find relevant products quickly, increasing engagement and conversion rates.
+            
+            Proactive Churn Prevention: By analyzing customer behavior patterns and feedback, 
+            the system enables proactive intervention to prevent customer churn. Early detection of 
+            dissatisfied customers allows the bank to address issues promptly and retain valuable 
+            customers, ultimately protecting revenue streams.
+            
+            Operational Efficiency: Automating customer support through the chatbot reduces 
+            the workload on human support agents, allowing them to focus on more complex 
+            issues. This operational efficiency translates to cost savings and improved 
+            service quality across the organization.
+            """
         ]
     },
     {

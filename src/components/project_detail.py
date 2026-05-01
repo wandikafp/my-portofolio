@@ -69,7 +69,12 @@ def render_project_detail(project: Project, show_back_button: bool = True):
             st.link_button("📦 Lihat Kode", project.github_url, use_container_width=True)
     
     with col_cta2:
-        if project.demo_url:
+        is_internal_page = project.demo_url.startswith("__page__:")
+        internal_page_path = project.demo_url.replace("__page__:", "") if is_internal_page else None
+        if is_internal_page and internal_page_path:
+            if st.button("▶ Buka Demo", key=f"demo_{project.id}", use_container_width=True):
+                st.switch_page(internal_page_path)
+        elif project.demo_url:
             st.link_button("🚀 Coba Demo", project.demo_url, use_container_width=True)
     
     with col_cta3:
