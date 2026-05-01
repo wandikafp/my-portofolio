@@ -9,12 +9,13 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from utils import config
 
 # Load data
 df = pd.read_csv('data/train.csv')
 
 # Pisahkan fitur dan target
-X = df.drop(['Id', 'SalePrice'], axis=1)
+X = df.drop(['Id', 'SalePrice'], axis=1)[config.FEATURE]
 y = df['SalePrice']
 
 # Identifikasi kolom numerik dan kategorikal
