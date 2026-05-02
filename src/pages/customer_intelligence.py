@@ -22,8 +22,6 @@ st.set_page_config(
     layout="centered"
 )
 
-# ── Cache heavy resources so they load only once ──────────────────────────────
-
 
 @st.cache_resource
 def load_chain():
@@ -91,8 +89,6 @@ def load_chain():
     return rag_chain
 
 
-# ── Per-session chat history store ───────────────────────────────────────────
-
 if "store" not in st.session_state:
     st.session_state.store = {}
 
@@ -107,9 +103,6 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
     if session_id not in st.session_state.store:
         st.session_state.store[session_id] = ChatMessageHistory()
     return st.session_state.store[session_id]
-
-
-# ── UI ────────────────────────────────────────────────────────────────────────
 
 with st.sidebar:
     st.title("🏦 SafeBank Assistant")

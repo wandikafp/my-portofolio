@@ -6,6 +6,114 @@ FEATURE = [
     "SaleCondition", "MSZoning", "PavedDrive", "LotShape", "SaleType"
 ]
 
+PROFILE = {
+    "name": "Wandika Febriano Pangaribuan",
+    "title": "Senior Software Engineer | AI Engineer",
+    "tagline": "Software Engineer turned AI Engineer — building scalable systems and intelligent products with 6+ years of backend, microservices, and data-driven development experience.",
+    "bio": (
+        "I am a Software Engineer with over 6 years of experience designing and developing scalable web applications, backend systems, and cloud-based solutions across e-commerce, enterprise, and digital platforms. My technical foundation in Java, Spring Boot, microservices, APIs, databases, and Google Cloud Platform has allowed me to build reliable production systems at scale.",
+        "Now, I am actively expanding into AI Engineering by combining my software architecture expertise with machine learning, data engineering, and modern AI technologies. My goal is to bridge robust software engineering with practical AI implementation — creating intelligent systems that are not only innovative, but production-ready, maintainable, and business-focused.",
+        "I am seeking opportunities where I can contribute as an AI Engineer, Backend Engineer, or Cloud/ML Engineer, particularly in roles involving machine learning systems, cloud infrastructure, and scalable AI product development."
+    ),
+    "location": "Jakarta, Indonesia",
+    "email": "wandika.pangaribuan@gmail.com",
+    "availability": "Open to opportunities",
+    "social": {
+        "LinkedIn": {"url": "https://www.linkedin.com/in/wandika-pangaribuan/", "icon": "🔗"},
+        "GitHub": {"url": "https://github.com/wandikafp", "icon": "💻"},
+    },
+}
+
+METRICS = [
+    ("6+", "Years of Experience"),
+    ("10+", "Projects Completed"),
+    ("3", "Major Companies"),
+    ("3", "Industries")
+]
+
+EXPERIENCE = [
+    {
+        "company": "DBS Bank",
+        "role": "Digibank Senior Software Engineer",
+        "period": "2022 — Present",
+        "description": [
+            "Developed and maintained production-ready microservices for supporting critical banking operations",
+            "Partnered with cross-functional teams to ensure high-quality feature delivery and strict adherence to organizational security standards",
+            "Resolved high-impact technical issues, minimizing business downtime and ensuring continuous operational stability",
+            "Conducted technical analysis and implementation planning, improving project delivery timelines by 20%",
+        ],
+        "tech": ["Java", "Spring Framework", "MariaDB", "Docker", "OpenShift (OCP)"],
+    },
+    {
+        "company": "Blibli.com",
+        "role": "Software Development Engineer",
+        "period": "2021 — 2022",
+        "description": [
+            "Developed and maintained B2B affiliate services enabling business partners to transact via high-scale APIs",
+            "Built internal B2B platforms for finance operations, achieving a 50% improvement in process efficiency through automation",
+            "Enhanced service reliability and scalability by integrating asynchronous messaging and caching layers into microservice architectures",
+        ],
+        "tech": ["Vue.js", "Typescript", "Java", "Spring WebFlux", "MongoDB", "Kafka", "Redis", "Docker", "Kubernetes"],
+    },
+    {
+        "company": "Xtremax",
+        "role": "Software Developer",
+        "period": "2018 — 2021",
+        "description": [
+            "Designed and maintained high-quality web applications for diverse enterprise clients",
+            "Improved application stability and long-term maintainability by proactively refactoring legacy code modules",
+            "Collaborated within Agile teams to deliver complex projects on schedule, consistently increasing client satisfaction",
+        ],
+        "tech": [".NET Core", "MSSQL Server", "MySQL", "PostgreSQL", "RabbitMQ", "Docker", "Vue.js", "Kubernetes"],
+    },
+]
+
+SKILLS = {
+    "⌨️ Programming": [
+        "Java",
+        "Python",
+        "SQL",
+        "NoSQL",
+        "Bash",
+        "JavaScript",
+        "C#"
+    ],
+
+    "🤖 ML / AI": [
+        "Scikit-learn",
+        "TensorFlow",
+        "PyTorch",
+        "XGBoost",
+        "LSTM",
+        "BERT",
+        "Machine Learning Fundamentals",
+        "Data Processing",
+        "RAG Concepts"
+    ],
+
+    "📊 Visualization": [
+        "Plotly",
+        "Matplotlib",
+        "Seaborn",
+        "Tableau",
+        "Streamlit",
+        "Dashboard Development"
+    ],
+
+    "⚙️ DevOps & Tools": [
+        "Docker",
+        "FastAPI",
+        "Spring Boot",
+        "Git",
+        "GCP",
+        "Redis",
+        "Airflow",
+        "REST APIs",
+        "Microservices",
+        "CI/CD"
+    ]
+}
+
 PROJECTS = [
     {
         "id": "house-price-prediction",
@@ -105,6 +213,44 @@ PROJECTS = [
             issues. This operational efficiency translates to cost savings and improved 
             service quality across the organization.
             """
+        ]
+    },
+    {
+        "id": "recommendation-system",
+        "title": "🎬 Movie Recommendation System",
+        "description": "Membangun sistem rekomendasi film hybrid menggunakan Content-Based Filtering, Collaborative Filtering (SVD), dan penggabungan keduanya untuk menghasilkan rekomendasi yang lebih akurat.",
+        "long_description": """
+        Proyek ini membangun dan mengevaluasi sistem rekomendasi film yang robust dengan mengeksplorasi
+        berbagai strategi rekomendasi, lalu menggabungkannya menjadi Hybrid Recommendation System.
+        
+        Pipeline yang dibangun meliputi:
+        
+        1. **Data Preprocessing**: Memuat dataset film dan rating (MovieLens), menangani missing values pada kolom genres
+        2. **Content-Based Filtering (CBF)**: Ekstraksi fitur menggunakan TF-IDF Vectorizer pada genre film, 
+        menghitung kemiripan dengan Cosine Similarity dan Euclidean Distance
+        3. **Collaborative Filtering (CF)**:
+           - *Item-Based*: Membuat user-item matrix dan menghitung kemiripan antar item
+           - *Model-Based (SVD)*: Melatih model Matrix Factorization menggunakan library `scikit-surprise`
+        4. **Hybrid Recommendation System**: Menggabungkan skor dari CBF dan SVD dengan formula:
+           `Hybrid Score = (0.4 × CBF_Score) + (0.6 × CF_Score)`
+        5. **Evaluation**: Mengevaluasi performa model SVD menggunakan RMSE dan MAE
+        
+        Dataset: ~9.742 film dari dataset MovieLens (movies.csv & ratings.csv).
+        """,
+        "tools": ["Python", "Scikit-learn", "Scikit-surprise", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+        "image_url": "https://via.placeholder.com/600x300?text=Customer+Intelligence",
+        "github_url": "",
+        "demo_url": "https://colab.research.google.com/drive/1FN-DSbu5gBe_BXwsqfxve7ebnujzZrTR",
+        "metrics": {"RMSE": "0.8717", "MAE": "0.6688", "Data": "9.742 Film"},
+        "challenges": [
+            "Content-Based Filtering sangat bergantung pada kualitas metadata — hanya genre yang tersedia sehingga rekomendasi kurang beragam (low serendipity)",
+            "Collaborative Filtering menghadapi Cold Start Problem untuk user/item baru",
+            "Data sparsity pada user-item rating matrix mengurangi kualitas rekomendasi CF"
+        ],
+        "outcomes": [
+            "Hybrid model terbukti paling efektif karena mengatasi kelemahan CBF (kurang variatif) dan CF (cold start/sparsity)",
+            "Kualitas dan kepadatan data (deskripsi item yang lebih kaya, riwayat rating yang lebih banyak) sangat mempengaruhi akurasi sistem rekomendasi",
+            "Cosine Similarity dan Euclidean Distance menghasilkan hasil serupa karena feature space genre yang relatif terbatas"
         ]
     },
     {

@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.config import PROJECTS
+from utils.config import PROJECTS, PROFILE, METRICS, EXPERIENCE, SKILLS
 from dto.Project import Project
 from utils.helpers import load_css
 
@@ -8,18 +8,17 @@ load_css()
 # ═══════════════════════════════════════════════════════════════
 # HERO
 # ═══════════════════════════════════════════════════════════════
-st.markdown("""
+st.markdown(f"""
 <div class="hero-section">
   <div class="hero-badge">Available for Work</div>
-  <h1 class="hero-name">Wandika <span class="accent">Febriano</span><br>Pangaribuan</h1>
-  <p class="hero-role">Senior Software Engineer &amp; <strong>Data Scientist</strong></p>
+  <h1 class="hero-name"><span class="accent">{PROFILE['name']}</span></h1>
+  <p class="hero-role">{PROFILE['title']}</p>
   <p class="hero-desc">
-    Membangun solusi AI yang berdampak — dari pipeline data hingga deployment production.
-    Passionate tentang mengubah data menjadi keputusan bisnis yang lebih cerdas.
+    {PROFILE['tagline']}
   </p>
   <div class="hero-cta">
-    <a href="https://github.com/wandikafp" target="_blank" class="btn-primary">GitHub Profile →</a>
-    <a href="mailto:wandika@example.com" class="btn-secondary">✉ Hubungi Saya</a>
+    <a href="{PROFILE['social']['GitHub']['url']}" target="_blank" class="btn-primary">GitHub Profile →</a>
+    <a href="mailto:{PROFILE['email']}" class="btn-secondary">✉ Hubungi Saya</a>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -35,30 +34,20 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-st.markdown("""
+bio_html = "".join(
+    f'<p class="about-text">{paragraph}</p>'
+    for paragraph in PROFILE["bio"]
+)
+
+st.markdown(f"""
 <div class="about-card">
-  <p class="about-text">
-    Saya adalah seorang <span class="about-highlight">Senior Software Engineer</span> dengan spesialisasi di 
-    <span class="about-highlight">Data Science & Machine Learning</span>. Dengan pengalaman lebih dari 
-    <span class="about-highlight">5 tahun</span>, saya telah membangun berbagai sistem AI end-to-end — 
-    mulai dari pengumpulan data, feature engineering, modeling, hingga deployment ke production.
-  </p>
-  <p class="about-text">
-    Saya percaya bahwa teknologi terbaik adalah yang <span class="about-highlight">menyelesaikan masalah nyata</span>. 
-    Saya selalu bersemangat berkolaborasi dalam tim yang driven by impact, 
-    terus belajar, dan menghadirkan solusi yang skalabel.
-  </p>
+  {bio_html}
 </div>
 """, unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
-stats = [
-    ("5+", "Tahun Pengalaman"),
-    ("20+", "Proyek Selesai"),
-    ("10K+", "Users Reached"),
-    ("92%", "Avg Model Accuracy"),
-]
-for col, (num, label) in zip([col1, col2, col3, col4], stats):
+
+for col, (num, label) in zip([col1, col2, col3, col4], METRICS):
     with col:
         st.markdown(f"""
         <div class="stat-item">
@@ -80,42 +69,10 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-experiences = [
-    {
-        "period": "2023 – Present",
-        "role": "Senior Software Engineer",
-        "company": "Tech Company, Jakarta",
-        "bullets": [
-            "Memimpin pengembangan platform ML end-to-end yang melayani 10K+ pengguna aktif.",
-            "Merancang arsitektur microservices dengan FastAPI + Docker untuk model serving.",
-            "Optimasi pipeline data yang mengurangi processing time hingga 60%.",
-        ],
-    },
-    {
-        "period": "2021 – 2023",
-        "role": "Data Scientist",
-        "company": "Startup Fintech, Jakarta",
-        "bullets": [
-            "Membangun model credit scoring dengan XGBoost, meningkatkan akurasi 15%.",
-            "Mengembangkan dashboard analitik real-time dengan Plotly & Streamlit.",
-            "Automasi laporan mingguan menghemat 8 jam kerja manual per bulan.",
-        ],
-    },
-    {
-        "period": "2019 – 2021",
-        "role": "Junior Data Analyst",
-        "company": "Konsultan IT, Bandung",
-        "bullets": [
-            "Analisis data pelanggan dari berbagai sumber (SQL, CSV, API).",
-            "Visualisasi insights menggunakan Tableau dan Matplotlib.",
-            "Kontribusi pada proyek ETL pipeline untuk klien enterprise.",
-        ],
-    },
-]
-
-for i, exp in enumerate(experiences):
-    bullets_html = "".join(f"<li>{b}</li>" for b in exp["bullets"])
-    show_line = i < len(experiences) - 1
+for i, exp in enumerate(EXPERIENCE):
+    bullets_html = "".join(f"<li>{b}</li>" for b in exp["description"])
+    tech_html = "".join(f'<span class="skill-tag">{t}</span>' for t in exp["tech"])
+    show_line = i < len(EXPERIENCE) - 1
     line_html = '<div class="exp-line"></div>' if show_line else ''
     st.markdown(f"""
     <div class="exp-item">
@@ -128,6 +85,7 @@ for i, exp in enumerate(experiences):
         <div class="exp-role">{exp['role']}</div>
         <div class="exp-company">🏢 {exp['company']}</div>
         <ul class="exp-bullets">{bullets_html}</ul>
+        <div class="skill-group">{tech_html}</div>
       </div>
     </div>
     """, unsafe_allow_html=True)
@@ -143,15 +101,8 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-skill_groups = {
-    "⌨️ Programming": ["Python", "SQL", "Bash", "JavaScript"],
-    "🤖 ML / AI": ["Scikit-learn", "TensorFlow", "PyTorch", "XGBoost", "LSTM", "BERT"],
-    "📊 Visualization": ["Plotly", "Matplotlib", "Seaborn", "Tableau", "Streamlit"],
-    "⚙️ DevOps & Tools": ["Docker", "FastAPI", "Git", "GCP", "Redis", "Airflow"],
-}
-
-cols = st.columns(len(skill_groups))
-for col, (group_name, skills) in zip(cols, skill_groups.items()):
+cols = st.columns(len(SKILLS))
+for col, (group_name, skills) in zip(cols, SKILLS.items()):
     with col:
         tags_html = "".join(f'<span class="skill-tag">{s}</span>' for s in skills)
         st.markdown(f"""

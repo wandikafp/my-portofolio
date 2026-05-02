@@ -4,35 +4,37 @@
    DESIGN TOKENS — Emerald Noir
    ════════════════════════════════ */
 :root {
-    --bg-base:        #080d0b;
-    --bg-surface:     #0e1612;
-    --bg-elevated:    #131e18;
-    --border-subtle:  rgba(0, 212, 170, 0.08);
-    --border-mid:     rgba(0, 212, 170, 0.18);
-    --border-strong:  rgba(0, 212, 170, 0.38);
+    --bg-base: #080d0b;
+    --bg-surface: #0e1612;
+    --bg-elevated: #131e18;
+    --border-subtle: rgba(0, 212, 170, 0.08);
+    --border-mid: rgba(0, 212, 170, 0.18);
+    --border-strong: rgba(0, 212, 170, 0.38);
 
-    --teal:           #00d4aa;
-    --teal-dim:       #00b891;
-    --teal-glow:      rgba(0, 212, 170, 0.18);
-    --amber:          #f59e0b;
-    --amber-dim:      rgba(245, 158, 11, 0.15);
-    --amber-border:   rgba(245, 158, 11, 0.3);
-    --red-accent:     #f87171;
+    --teal: #00d4aa;
+    --teal-dim: #00b891;
+    --teal-glow: rgba(0, 212, 170, 0.18);
+    --amber: #f59e0b;
+    --amber-dim: rgba(245, 158, 11, 0.15);
+    --amber-border: rgba(245, 158, 11, 0.3);
+    --red-accent: #f87171;
 
-    --text-primary:   #dff5ee;
+    --text-primary: #dff5ee;
     --text-secondary: #7aaa99;
-    --text-muted:     #3d6055;
+    --text-muted: #3d6055;
 
-    --radius-sm:  8px;
-    --radius-md:  14px;
-    --radius-lg:  20px;
-    --radius-xl:  28px;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
 }
 
 /* ════════════════════════════════
    GLOBAL
    ════════════════════════════════ */
-html, body, [class*="css"] {
+html,
+body,
+[class*="css"] {
     font-family: 'DM Sans', sans-serif;
     background-color: var(--bg-base) !important;
 }
@@ -48,8 +50,8 @@ html, body, [class*="css"] {
     text-align: center;
     margin-bottom: 56px;
     background:
-        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0,212,170,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(245,158,11,0.08) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0, 212, 170, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 55%),
         linear-gradient(160deg, #0b1512 0%, #0d1a16 50%, #081210 100%);
     border: 1px solid var(--border-subtle);
 }
@@ -59,13 +61,11 @@ html, body, [class*="css"] {
     content: '';
     position: absolute;
     inset: 0;
-    background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 3px,
-        rgba(0, 212, 170, 0.013) 3px,
-        rgba(0, 212, 170, 0.013) 4px
-    );
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 3px,
+            rgba(0, 212, 170, 0.013) 3px,
+            rgba(0, 212, 170, 0.013) 4px);
     pointer-events: none;
 }
 
@@ -98,8 +98,15 @@ html, body, [class*="css"] {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
 }
 
 .hero-name {
@@ -164,13 +171,14 @@ html, body, [class*="css"] {
     font-size: 0.9rem;
     text-decoration: none !important;
     transition: all 0.25s ease;
-    box-shadow: 0 0 24px rgba(0, 212, 170, 0.35), 0 4px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 0 24px rgba(0, 212, 170, 0.35), 0 4px 16px rgba(0, 0, 0, 0.4);
     letter-spacing: 0.2px;
 }
+
 .btn-primary:hover {
     background: #00f0c0;
     transform: translateY(-2px);
-    box-shadow: 0 0 40px rgba(0, 212, 170, 0.55), 0 8px 24px rgba(0,0,0,0.4);
+    box-shadow: 0 0 40px rgba(0, 212, 170, 0.55), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .btn-secondary {
@@ -184,6 +192,7 @@ html, body, [class*="css"] {
     text-decoration: none !important;
     transition: all 0.25s ease;
 }
+
 .btn-secondary:hover {
     border-color: var(--teal);
     color: var(--teal) !important;
@@ -232,7 +241,8 @@ html, body, [class*="css"] {
 .about-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 3px;
     height: 100%;
     background: linear-gradient(180deg, var(--teal), transparent);
@@ -310,6 +320,7 @@ html, body, [class*="css"] {
     flex-shrink: 0;
     position: relative;
 }
+
 .exp-dot::after {
     content: '';
     position: absolute;
@@ -335,17 +346,26 @@ html, body, [class*="css"] {
     position: relative;
     overflow: hidden;
 }
+
 .exp-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg, var(--teal), transparent);
     opacity: 0;
     transition: opacity 0.25s;
 }
-.exp-card:hover { border-color: var(--border-mid); }
-.exp-card:hover::before { opacity: 1; }
+
+.exp-card:hover {
+    border-color: var(--border-mid);
+}
+
+.exp-card:hover::before {
+    opacity: 1;
+}
 
 .exp-period {
     font-size: 0.72rem;
@@ -402,10 +422,12 @@ html, body, [class*="css"] {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 24px;
-    height: 100%;
     transition: border-color 0.25s;
 }
-.skill-group:hover { border-color: var(--border-mid); }
+
+.skill-group:hover {
+    border-color: var(--border-mid);
+}
 
 .skill-group-title {
     font-family: 'Syne', sans-serif;
@@ -530,7 +552,9 @@ html, body, [class*="css"] {
     transition: color 0.2s;
 }
 
-.proj-link:hover { color: var(--teal); }
+.proj-link:hover {
+    color: var(--teal);
+}
 
 /* ════════════════════════════════
    FOOTER

@@ -1,7 +1,7 @@
 import streamlit as st
 
 # ── Define navigation — hanya halaman yang listed yang tampil di sidebar ──
-home_page    = st.Page("pages/1_🏠_Home.py",        title="Home",        icon="🏠", default=True)
+home_page    = st.Page("pages/1_🏠_Home.py", title="Home", icon="🏠", default=True)
 proyek_page  = st.Page("pages/2_💼_Projects.py", title="Proyek Saya", icon="💼")
 
 # Prediksi diakses via demo button, tidak tampil di sidebar nav utama
