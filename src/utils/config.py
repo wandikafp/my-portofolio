@@ -147,6 +147,36 @@ PROJECTS = [
         ]
     },
     {
+        "id": "smart-shopper",
+        "title": "🛍️ Smart Shopper AI",
+        "description": "Asisten belanja AI yang menggunakan Gemini 2.5 Flash dan MongoDB Vector Search untuk memberikan rekomendasi produk.",
+        "long_description": """
+        Smart Shopper AI adalah asisten belanja cerdas berbasis Agentic AI. Sistem ini dapat memahami preferensi 
+        pengguna secara semantik dan mencari katalog produk melalui MongoDB Vector Search.
+        
+        Fitur Utama:
+        🔹 **Semantic Product Search**: Mencari produk tidak hanya dari kata kunci, tetapi juga dari makna (menggunakan `all-mpnet-base-v2`).
+        🔹 **LLM Function Calling**: Agent Gemini secara otomatis memanggil *tools* pencarian produk atau pemeriksaan material berdasarkan obrolan pengguna.
+        🔹 **Material Safety Check**: Memeriksa aspek keamanan dan keberlanjutan material produk.
+        🔹 **Structured JSON Output**: Memaksa LLM memberikan output dalam skema JSON yang dirender menjadi *Product Card* interaktif di antarmuka Streamlit.
+        """,
+        "tools": ["Python", "Gemini 2.5 Flash", "MongoDB Atlas", "SentenceTransformers", "Streamlit"],
+        "image_url": "https://via.placeholder.com/600x300?text=Smart+Shopper+AI",
+        "github_url": "https://github.com/wandikafp/SmartShopper_AI_Assistant",
+        "demo_url": "__page__:pages/smart_shopper.py",
+        "metrics": {"Model": "Gemini-2.5-Flash", "Vector DB": "MongoDB", "Embedding": "mpnet-base-v2"},
+        "challenges": [
+            "Memastikan LLM konsisten menghasilkan format JSON yang valid untuk *Product Card*",
+            "Mengoptimalkan query *Vector Search* yang digabungkan dengan pre-filtering (harga, kategori, material)",
+            "Menyediakan fallback pencarian berbasis teks reguler (*text search*) jika *vector search* gagal"
+        ],
+        "outcomes": [
+            "Aplikasi agen cerdas end-to-end yang mengintegrasikan LLM dengan database eksternal (*RAG & Tool Use*)",
+            "Peningkatan relevansi pencarian melalui pencarian vektor berbasis makna semantik",
+            "Antarmuka *chat* responsif yang dirender langsung dengan Streamlit"
+        ]
+    },
+    {
         "id": "house-price-prediction",
         "title": "🏠 Prediksi Harga Rumah (House Prices)",
         "description": "Pipeline machine learning end-to-end untuk memprediksi harga rumah dengan Random Forest. RMSE 0.15 (standarisasi).",
