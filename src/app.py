@@ -6,11 +6,8 @@ proyek_page  = st.Page("pages/2_💼_Projects.py", title="Proyek Saya", icon="�
 
 # Prediksi diakses via demo button, tidak tampil di sidebar nav utama
 ser_page = st.Page("pages/🎙️_Speech_Emotion_Recognition.py", title="Speech Emotion Recognition")
-
 smart_shopper_page = st.Page("pages/smart_shopper.py", title="Smart Shopper AI", icon="🛍️")
-
 prediksi_page = st.Page("pages/🏠_Prediksi_Harga_Rumah.py", title="Prediksi Harga Rumah")
-
 chatbot_page = st.Page("pages/customer_intelligence.py", title="SafeBank Assistant", icon="🏦")
 
 pg = st.navigation(

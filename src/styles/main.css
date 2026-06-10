@@ -4,24 +4,24 @@
    DESIGN TOKENS — Emerald Noir
    ════════════════════════════════ */
 :root {
-    --bg-base: #080d0b;
-    --bg-surface: #0e1612;
-    --bg-elevated: #131e18;
-    --border-subtle: rgba(0, 212, 170, 0.08);
-    --border-mid: rgba(0, 212, 170, 0.18);
-    --border-strong: rgba(0, 212, 170, 0.38);
+    --bg-base: #0E1117;
+    --bg-surface: #161A22;
+    --bg-elevated: #1C2128;
+    --border-subtle: rgba(0, 163, 255, 0.08);
+    --border-mid: rgba(0, 163, 255, 0.18);
+    --border-strong: rgba(0, 163, 255, 0.38);
 
-    --teal: #00d4aa;
-    --teal-dim: #00b891;
-    --teal-glow: rgba(0, 212, 170, 0.18);
+    --teal: #00A3FF;
+    --teal-dim: #0082CC;
+    --teal-glow: rgba(0, 163, 255, 0.18);
     --amber: #f59e0b;
     --amber-dim: rgba(245, 158, 11, 0.15);
     --amber-border: rgba(245, 158, 11, 0.3);
     --red-accent: #f87171;
 
-    --text-primary: #dff5ee;
-    --text-secondary: #7aaa99;
-    --text-muted: #3d6055;
+    --text-primary: #F0F6FC;
+    --text-secondary: #8B949E;
+    --text-muted: #6E7681;
 
     --radius-sm: 8px;
     --radius-md: 14px;
@@ -50,9 +50,9 @@ body,
     text-align: center;
     margin-bottom: 56px;
     background:
-        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0, 212, 170, 0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(0, 163, 255, 0.1) 0%, transparent 60%),
         radial-gradient(ellipse 60% 50% at 80% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 55%),
-        linear-gradient(160deg, #0b1512 0%, #0d1a16 50%, #081210 100%);
+        linear-gradient(160deg, #161A22 0%, #1C2128 50%, #0E1117 100%);
     border: 1px solid var(--border-subtle);
 }
 
@@ -64,8 +64,8 @@ body,
     background: repeating-linear-gradient(0deg,
             transparent,
             transparent 3px,
-            rgba(0, 212, 170, 0.013) 3px,
-            rgba(0, 212, 170, 0.013) 4px);
+            rgba(0, 163, 255, 0.013) 3px,
+            rgba(0, 163, 255, 0.013) 4px);
     pointer-events: none;
 }
 
@@ -122,7 +122,7 @@ body,
 }
 
 .hero-name .accent {
-    background: linear-gradient(120deg, var(--teal), #00ffd0, var(--teal-dim));
+    background: linear-gradient(120deg, var(--teal), #66C7FF, var(--teal-dim));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
