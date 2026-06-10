@@ -116,6 +116,37 @@ SKILLS = {
 
 PROJECTS = [
     {
+        "id": "speech-emotion-recognition",
+        "title": "🎙️ Speech Emotion Recognition",
+        "description": "Sistem deteksi emosi negatif (marah, sedih, frustrasi) secara real-time untuk contact center guna mengurangi customer churn, menggunakan arsitektur CNN-BiLSTM + Attention.",
+        "long_description": """
+        Proyek ini mengimplementasikan sistem Speech Emotion Recognition (SER) untuk diintegrasikan pada 
+        contact center. Tujuannya adalah mendeteksi pelanggan dengan emosi negatif secara real-time agar 
+        bisa dialihkan ke agen senior, mempercepat penyelesaian masalah, dan mengurangi peluang churn.
+        
+        Pipeline & Arsitektur:
+        🔹 **Dataset**: RAVDESS (1.440 sampel audio difilter, diaugmentasi menjadi 5.760 sampel pada training)
+        🔹 **Feature Extraction**: 40 fitur akustik per time frame (MFCC, Delta, Delta-Delta, RMSE)
+        🔹 **Modeling**: Menggunakan arsitektur CNN-BiLSTM + Soft Attention untuk memfokuskan bobot pada bagian audio yang krusial
+        🔹 **Deployment**: FastAPI REST API untuk backend (routing agent, batch predict) dan Streamlit Dashboard untuk antarmuka pengguna
+        """,
+        "tools": ["Python", "TensorFlow", "Keras", "FastAPI", "Librosa", "Streamlit", "Joblib"],
+        "image_url": "https://via.placeholder.com/600x300?text=Speech+Emotion+Recognition",
+        "github_url": "https://github.com/wandikafp/speech-emotion-recognition",
+        "demo_url": "__page__:pages/🎙️_Speech_Emotion_Recognition.py",
+        "metrics": {"Data": "5.760 (Train)", "Fitur": "40 (MFCC+RMSE)", "Model": "CNN-BiLSTM-Attention"},
+        "challenges": [
+            "Memilih dan mengekstrak fitur audio secara dinamis (MFCC, Delta, RMSE) di inference time",
+            "Mengembangkan custom layer SoftAttention yang terintegrasi pada arsitektur CNN-BiLSTM",
+            "Mengatasi kelas data yang tidak seimbang dan melakukan augmentasi secara efektif tanpa data leakage"
+        ],
+        "outcomes": [
+            "Dashboard Streamlit untuk simulasi Contact Center dan Live Demo prediksi emosi langsung dari browser",
+            "Meningkatkan efisiensi penyelesaian masalah dan berpotensi menurunkan customer churn",
+            "Rencana pengembangan ke model Wav2vec2.0 dan dataset IEMOCAP (conversational speech) untuk performa lebih baik"
+        ]
+    },
+    {
         "id": "house-price-prediction",
         "title": "🏠 Prediksi Harga Rumah (House Prices)",
         "description": "Pipeline machine learning end-to-end untuk memprediksi harga rumah dengan Random Forest. RMSE 0.15 (standarisasi).",
@@ -284,34 +315,4 @@ PROJECTS = [
             "Integration dengan API untuk real-time prediction"
         ]
     },
-    {
-        "id": "covid-dashboard",
-        "title": "📈 Dashboard COVID-19 Interaktif",
-        "description": "Dashboard interaktif yang menampilkan perkembangan kasus COVID-19 global dengan berbagai filter dan visualisasi real-time.",
-        "long_description": """
-        Dashboard analitik untuk monitoring pandemi COVID-19 dengan kemampuan:
-        
-        🌍 **Global & Regional Views**: Filter by country, date range, metrics
-        📊 **Interactive Charts**: Time series, choropleth maps, comparative analysis
-        ⚡ **Real-time Updates**: Auto-refresh dari WHO/Johns Hopkins API
-        📱 **Responsive Design**: Mobile-friendly dengan Plotly Dash
-        
-        Dibangun dengan arsitektur serverless untuk skalabilitas tinggi.
-        """,
-        "tools": ["Plotly Dash", "Pandas", "Heroku", "Google Sheets API", "Redis"],
-        "image_url": "https://via.placeholder.com/600x300?text=COVID+Dashboard",
-        "github_url": "https://github.com/wandikafp",
-        "demo_url": "https://covid-dashboard-demo.herokuapp.com",
-        "metrics": {"Users": "10K+", "Uptime": "99.9%", "Latency": "<200ms"},
-        "challenges": [
-            "Rate limiting dan caching untuk API eksternal",
-            "Optimasi rendering untuk dataset besar (1M+ rows)",
-            "Multi-language support untuk akses global"
-        ],
-        "outcomes": [
-            "Pattern untuk real-time data visualization apps",
-            "Best practices untuk dashboard performance optimization",
-            "Reusable components library untuk Plotly Dash"
-        ]
-    }
 ]
