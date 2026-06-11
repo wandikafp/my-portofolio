@@ -53,6 +53,19 @@ def main():
     
     model = st.session_state.model
     
+    import os
+    sample_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "sample_input.csv")
+    try:
+        with open(sample_path, "rb") as f:
+            st.download_button(
+                label="📄 Unduh Contoh Input CSV",
+                data=f,
+                file_name="sample_input.csv",
+                mime="text/csv"
+            )
+    except FileNotFoundError:
+        pass
+        
     uploaded_file = st.file_uploader("📁 Pilih file CSV", type="csv")
     
     if uploaded_file is not None:
